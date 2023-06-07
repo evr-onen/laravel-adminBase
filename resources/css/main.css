@@ -1,0 +1,397 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './cropper.css';
+@layer base {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.17rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  h5 {
+    font-size: 0.83rem;
+  }
+  h6 {
+    font-size: 0.67rem;
+  }
+}
+
+@layer components {
+  .btn-sss {
+    @apply rounded-lg bg-slate-500 px-4 py-2 font-semibold text-orange-700 shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+}
+
+@layer utilities {
+  .stroked {
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.2);
+    line-height: 170px;
+  }
+  .stroked-1 {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+    line-height: 170px;
+  }
+}
+
+.strokedText {
+  @apply stroked;
+  line-height: 170px;
+}
+.strokedText-2 {
+  @apply stroked-1;
+  line-height: 170px;
+}
+
+/* @import "./other/other.css"; */
+html {
+  height: 100%;
+
+  /* & body .page {
+    background-color: blue;
+  } */
+}
+/* h1 {
+  font-size: 2rem;
+} */
+.home {
+  min-height: 1200px;
+}
+
+.headerScrolled {
+  background-color: black;
+  opacity: 0.7;
+}
+.menuOpacity {
+  background-color: black !important;
+  opacity: 0.95 !important;
+}
+.headerScrolled li > a,
+.headerScrolled span {
+  color: white !important;
+  opacity: 0.7;
+}
+.headerScrolled li:hover a {
+  color: white;
+  opacity: 1 !important;
+}
+
+.toCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.letter-wider {
+  letter-spacing: 8px;
+}
+.boxShadow {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.overlay-container {
+  position: relative;
+}
+
+.overlay-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Overlay'in arka plan rengi ve opaklığı */
+  z-index: 20; /* Overlay'in diğer içeriklerden üstte olması için z-index değeri */
+}
+footer {
+  & input {
+    @apply bg-gray-800;
+  }
+  & input:focus {
+    outline: 2px solid gray;
+  }
+  & .newslatter button {
+    @apply border-gray-800 bg-gray-800;
+  }
+  & .newslatter button:hover {
+    @apply bg-gray-600;
+  }
+}
+
+.section-clients {
+  & .boxItems {
+    & .boxItem:hover {
+      & img {
+        opacity: 0;
+        visibility: hidden;
+      }
+      & a {
+        opacity: 1;
+        visibility: visible;
+        bottom: 40%;
+      }
+    }
+  }
+}
+.section-blogs {
+  & .sectionContent {
+    & .blogItem:hover {
+      transition: 300ms;
+      bottom: 5px;
+
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+    & .blogItem {
+      transition: 300ms;
+      bottom: 0px;
+
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+  }
+}
+
+.btnMenu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+.overlayMenuOpen {
+  top: 64px !important;
+  transition: 500ms;
+}
+
+.logo-ToMid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.croppertry {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  & img {
+    display: block;
+    width: 500px;
+  }
+}
+.openOverlay {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: 300 !important;
+
+  /* @apply !visible !opacity-100 !duration-300; */
+}
+
+/* portfolio*/
+.portfolio ul {
+  list-style: none;
+}
+
+/* .portfolio img {
+  max-width: 100%;
+  height: 100%;
+} */
+
+.portfolio .filter-menu {
+  margin-bottom: 20px;
+}
+.portfolio .filter-menu li {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #eb4d4b;
+  color: #fff;
+  cursor: pointer;
+}
+.portfolio .filter-menu li:hover,
+.portfolio .filter-menu li.current {
+  background: #ff7979;
+}
+
+.portfolio .filter-item li {
+  width: 50%;
+  padding: 2px;
+  float: left;
+  height: 450px;
+}
+.portfolio .filter-item li a {
+  display: block;
+  height: 100%;
+}
+
+.portfolio .filter-item li.active {
+  width: 50%;
+  padding: 2px;
+  float: left;
+  height: 450px;
+  transition: all 0.5s ease;
+}
+
+.portfolio .filter-item li.delete {
+  width: 0%;
+  height: 0%;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+
+.portfolio .filter-item img {
+  display: block;
+  width: auto;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio .filter-item li.active,
+  .portfolio .filter-item li {
+    width: 33.33%;
+  }
+
+  .portfolio h2 {
+    font-size: 190%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .portfolio .filter-item li.active,
+  .portfolio .filter-item li {
+    width: 25%;
+  }
+}
+.filter-item li a {
+  position: relative;
+  transition: 500ms;
+  overflow: hidden;
+}
+.filter-item li:hover a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+.filter-item li .subText {
+  position: absolute;
+  bottom: -6.5rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 6rem;
+  /* background: #ff7979; */
+
+  transition: 500ms;
+}
+.filter-item li:hover .subText {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 6rem;
+}
+.filter-item li .subText h3 {
+  letter-spacing: 2px;
+}
+.headerText {
+  @apply text-xs font-normal uppercase tracking-widest opacity-70 duration-500;
+}
+.headerText:hover {
+  @apply opacity-100;
+}
+
+.langBtn div.absolute {
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms;
+  background-color: rgb(0, 0, 0);
+}
+.langBtn:hover div.absolute {
+  visibility: visible;
+  opacity: 1;
+}
+.langBtn:hover button {
+  @apply opacity-100;
+}
+.currentLang {
+  background-color: rgb(126, 125, 125);
+  border-radius: 10px;
+  /* color: rgb(34, 32, 32) !important; */
+}
+
+.dropdownMenuCont > a:not(.currentLang):hover {
+  @apply text-opacity-100;
+}
+.dropdownMenuCont > a {
+  @apply !text-white text-opacity-70;
+}
+/* rgb(150, 150, 150) .langBtn:hover span {
+  opacity: 1;
+} */
+.create-blogs .blogItem {
+  transition: 300ms;
+  bottom: 0px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.vsb-menu p {
+  height: 30px;
+}
+#multiSelectContainer > div > div > input:focus {
+  box-shadow: none;
+}
+
+.blogList .blogItem {
+  transition: 300ms;
+  bottom: 0px;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
+}
+.blogList .blogItem:hover {
+  transition: 300ms;
+  bottom: 5px;
+
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
